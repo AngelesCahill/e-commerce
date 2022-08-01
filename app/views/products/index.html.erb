@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Productos</h1>
+<%= link_to "New product", new_product_path %>
+<div id="products">
+  <% @products.each do |product| %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Sku</th>
+            <th scope="col">Categoria</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <%= render product %>
+            <td>
+            <%= link_to "Show this product", product %>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+
+
