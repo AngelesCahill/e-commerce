@@ -1,0 +1,43 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>ECommerce</h1>
+
+<div class="row my-3">
+  <div class="col-md-8 offset-2 mx-3">
+    <div class="container">
+      <div class="row">
+        <% @products.each do |product| %>
+        <div class="col-md-3">
+          <div class="card my-3">
+            <img class="card-img-top" src="https://dummyimage.com/600x400/c7c7c7/737373&text=image" alt="<%= product.name %>"/>
+            <div class="card-block">
+              <h5 class="card-title text-center"><%= product.name %></h5>
+              <div class="card-text text-center">
+                <div class="badge badge-primary">
+                  <%= product.categories.first.name %>
+                </div>
+                <div>$<%= product.price %></div>
+              </div>
+              <div class="row float-right">
+                <div class="col-md-12 text-center">
+                  <%= form_for :cart, url: cart_path, method: :put do |f| %>
+                    <%= f.hidden_field :product_id, value: product.id %>
+                    <%= f.hidden_field :quantity, value: 1 %>
+                    <%= f.submit "Agregar al carro", class:"btn btn-danger btn-sm my-3" %>
+                    <br>
+                    <%= link_to "Ver mi carro", cart_path(@carts) %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

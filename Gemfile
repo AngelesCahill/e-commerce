@@ -69,4 +69,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'test_helper'
 end
+
+gem "devise", "~> 4.8"
+
+gem "activemerchant", "~> 1.126"
